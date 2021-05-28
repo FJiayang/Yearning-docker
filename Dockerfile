@@ -7,6 +7,8 @@ EXPOSE 8000
 COPY Yearning  /opt/Yearning
 COPY conf.toml /opt/conf.toml
 
+RUN chmod 777 /opt/Yearning && /opt/conf.toml
+
 RUN echo "http://mirrors.ustc.edu.cn/alpine/v3.12/main/" > /etc/apk/repositories && \
       apk add --no-cache tzdata libc6-compat && \
       ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
